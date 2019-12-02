@@ -27,20 +27,20 @@ import java.io.IOException;
 import static com.example.myapplication.FBref.islandRef;
 
 public class GALLERY extends AppCompatActivity {
-    ImageView imageUpload;
+    ImageView imUpload;
     Button btnup, btndl;
     private static final int RESOLT_LOAD_IMAGE =1;
-    private Uri fileUri;
+    private Uri fUri;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-        imageUpload=(ImageView) findViewById(R.id.imvigallery);
+        imUpload=(ImageView) findViewById(R.id.imagegallery);
 
-        btnup =(Button) findViewById(R.id.btngalleryupload);
-        btndl = (Button) findViewById(R.id.btngallerydownload);
+        btnup =(Button) findViewById(R.id.galleryupload);
+        btndl = (Button) findViewById(R.id.gallerydownload);
 
 
         btnup.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +68,7 @@ public class GALLERY extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         try {
                             Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                            imageUpload.setImageBitmap(bitmap);
+                            imUpload.setImageBitmap(bitmap);
                         } catch (IOException e) {
                             e.printStackTrace();
                             Toast.makeText(GALLERY.this, "got image", Toast.LENGTH_SHORT).show();
@@ -78,7 +78,7 @@ public class GALLERY extends AppCompatActivity {
                     public void onFailure(@NonNull Exception exception) {
                         Toast.makeText(GALLERY.this, "failed", Toast.LENGTH_SHORT).show();
 
-                    }
+                    } 
                 });
     }
 
@@ -93,13 +93,13 @@ public class GALLERY extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==RESOLT_LOAD_IMAGE && resultCode==RESULT_OK && data!=null && data.getData()!=null){
-            fileUri = data.getData();
-            if (fileUri != null) {
+            fUri = data.getData();
+            if (fUri != null) {
                 final ProgressDialog progressDialog = new ProgressDialog(this);
                 progressDialog.setTitle("Uploading...");
                 progressDialog.show();
 
-                islandRef.putFile(fileUri)
+                islandRef.putFile(fUri)
                         .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

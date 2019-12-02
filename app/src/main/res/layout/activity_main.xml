@@ -23,12 +23,12 @@
             android:layout_weight="1" />
 
         <EditText
-            android:id="@+id/mailad"
+            android:id="@+id/email"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
             android:ems="10"
-            android:hint="email adress"
+            android:hint="email address"
             android:textSize="24sp"
             android:inputType="textEmailAddress"
             />
@@ -56,12 +56,12 @@
             android:layout_weight="1" />
 
         <EditText
-            android:id="@+id/phonenum"
+            android:id="@+id/number"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
             android:ems="10"
-            android:hint="phone"
+            android:hint="phone number"
             android:inputType="phone"
             android:textSize="24sp"
             />
@@ -89,12 +89,11 @@
             android:layout_weight="2"/>
 
         <Button
-            android:id="@+id/data"
+            android:id="@+id/but"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
             android:text="enter data"
-            android:textColor="#E91E63"
             android:onClick="enterD"/>
 
         <Space

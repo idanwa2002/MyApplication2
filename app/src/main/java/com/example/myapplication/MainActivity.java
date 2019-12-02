@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-    EditText p, ea; String email, password;
+    EditText p, e; String email, password;
     private FirebaseAuth mAuth;
 
 
@@ -27,15 +27,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        p=(EditText) findViewById(R.id.phonenum);
-        ea=(EditText) findViewById(R.id.mailad);
+        p=(EditText) findViewById(R.id.number);
+        e=(EditText) findViewById(R.id.email);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
     }
     private void updateUI(FirebaseUser currentUser) {
     }
     public void enterD(View view) {
-        email=ea.getText().toString();
+        email=e.getText().toString();
         password=p.getText().toString();
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override

@@ -28,7 +28,7 @@ import static com.example.myapplication.FBref.myRef;
 public class LIST extends AppCompatActivity implements AdapterView.OnItemClickListener {
     EditText tvup;
     ListView lv;
-    ArrayList<String> stringList= new ArrayList<String>();
+    ArrayList<String> sList= new ArrayList<String>();
     ArrayAdapter<String> adp;
     String nd;
 
@@ -43,13 +43,13 @@ public class LIST extends AppCompatActivity implements AdapterView.OnItemClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        tvup=(EditText)findViewById(R.id.etnewdata);
-        lv=(ListView) findViewById(R.id.listVieID);
+        tvup=(EditText)findViewById(R.id.etnew);
+        lv=(ListView) findViewById(R.id.listViewID);
 
 
         lv.setOnItemClickListener(this);
         lv.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        adp=new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,stringList);
+        adp=new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,sList);
         lv.setAdapter(adp);
     }
     public void updateData(View view) {
@@ -61,12 +61,12 @@ public class LIST extends AppCompatActivity implements AdapterView.OnItemClickLi
         ValueEventListener mrListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot ds) {
-                stringList.clear();
+                sList.clear();
                 for (DataSnapshot data : ds.getChildren()){
                     String tmp=data.getValue(String.class);
-                    stringList.add(tmp);
+                    sList.add(tmp);
                 }
-                adp = new ArrayAdapter<String>(LIST.this,R.layout.support_simple_spinner_dropdown_item, stringList);
+                adp = new ArrayAdapter<String>(LIST.this,R.layout.support_simple_spinner_dropdown_item, sList);
                 lv.setAdapter(adp);
             }
 
@@ -88,7 +88,7 @@ public class LIST extends AppCompatActivity implements AdapterView.OnItemClickLi
         ad.setPositiveButton("confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                String str= stringList.get(position);
+                String str= sList.get(position);
                 myRef.child(str).removeValue();
                 Toast.makeText(LIST.this, "Deleting succeeded", Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menuFst"
+        android:id="@+id/fst"
         android:title="register"
         android:orderInCategory="100"
         />
 
     <item
-        android:id="@+id/menuSnd"
+        android:id="@+id/snd"
         android:title="LIST"
         android:orderInCategory="200"
         />
 
     <item
-        android:id="@+id/menuTrd"
+        android:id="@+id/trd"
         android:title="gallery"
         android:orderInCategory="300"
         />

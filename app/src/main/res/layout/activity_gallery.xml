@@ -13,7 +13,7 @@
 
 
         <ImageView
-            android:id="@+id/imvigallery"
+            android:id="@+id/imagegallery"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_gravity="center_horizontal"
@@ -22,13 +22,13 @@
 
 
         <Button
-            android:id="@+id/btngalleryupload"
+            android:id="@+id/galleryupload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="uploud image" />
 
         <Button
-            android:id="@+id/btngallerydownload"
+            android:id="@+id/gallerydownload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="download image" />
